@@ -1,15 +1,21 @@
+import type React from "react";
+import LunarDate from "./components/LunarDate";
 import "./index.css";
-import { getDateColor } from "./lib/color";
+import { getDateColors } from "./lib/color";
 
 export function App() {
+  const colors = getDateColors(new Date());
   return (
     <div
-      style={{
-        backgroundColor: getDateColor(new Date(), "dark"),
-      }}
-      className={`h-full w-full text-9xl font-(family-name:--font-zhuzimincho) flex items-center justify-center`}
+      style={
+        {
+          "--color-theme-light": colors.light,
+          "--color-theme-dark": colors.dark,
+        } as React.CSSProperties
+      }
+      className="h-full w-full flex justify-center items-center bg-white dark:bg-black"
     >
-      测试标题
+      <LunarDate />
     </div>
   );
 }

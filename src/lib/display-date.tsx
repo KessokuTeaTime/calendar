@@ -1,0 +1,87 @@
+import { getGZ, toLunar } from "lunar-ts";
+
+export function getLunarYearNotation(date: Date): string | undefined {
+  return getGZ(date.getTime());
+}
+
+export function getLunarMonthNotation(date: Date): LunarMonth | undefined {
+  const lunarMonth = toLunar(date.getTime())?.lMonth;
+  if (lunarMonth != null) {
+    return getLunarMonth(lunarMonth);
+  }
+}
+
+export function getLunarDayNotation(date: Date): LunarDay | undefined {
+  const lunarDay = toLunar(date.getTime())?.lDay;
+  if (lunarDay != null) {
+    return getLunarDay(lunarDay);
+  }
+}
+
+export const lunarMonths = [
+  "正",
+  "二",
+  "三",
+  "四",
+  "五",
+  "六",
+  "七",
+  "八",
+  "九",
+  "十",
+  "冬",
+  "蜡",
+] as const;
+
+export type LunarMonth = (typeof lunarMonths)[number];
+
+export function getLunarMonth(ordinal: number): LunarMonth | undefined {
+  return lunarMonths[(ordinal - 1) % 12];
+}
+
+export function getOrdinalOfLunarMonth(month: LunarMonth): number {
+  return lunarMonths.indexOf(month) + 1;
+}
+
+export const lunarDays = [
+  "初一",
+  "初二",
+  "初三",
+  "初四",
+  "初五",
+  "初六",
+  "初七",
+  "初八",
+  "初九",
+  "初十",
+  "十一",
+  "十二",
+  "十三",
+  "十四",
+  "十五",
+  "十六",
+  "十七",
+  "十八",
+  "十九",
+  "二十",
+  "廿一",
+  "廿二",
+  "廿三",
+  "廿四",
+  "廿五",
+  "廿六",
+  "廿七",
+  "廿八",
+  "廿九",
+  "三十",
+] as const;
+
+export type LunarDay = (typeof lunarDays)[number];
+
+export function getLunarDay(ordinal: number): LunarDay | undefined {
+  return lunarDays[(ordinal - 1) % 30];
+}
+
+export function getOrdinalOfLunarDay(day: LunarDay): number {
+  return lunarDays.indexOf(day) + 1;
+}
