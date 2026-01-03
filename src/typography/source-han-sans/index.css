@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Source Han Sans SC";
+  src: url("./typography/source-han-sans/SourceHanSansSC-VF.otf")
+    format("opentype");
+  font-weight: 100 900;
+  font-display: swap;
+}

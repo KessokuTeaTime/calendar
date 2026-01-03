@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Novecento";
+  src: url("./typography/novecento/Novecento-Light.otf");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Novecento";
+  src: url("./typography/novecento/Novecento-Normal.otf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Novecento";
+  src: url("./typography/novecento/Novecento-Medium.otf");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Novecento";
+  src: url("./typography/novecento/Novecento-Bold.otf");
+  font-weight: 800;
+  font-display: swap;
+}

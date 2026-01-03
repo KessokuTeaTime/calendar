@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOL.TTF")
+    format("truetype");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOR.TTF")
+    format("truetype");
+  font-weight: 250;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOM.TTF")
+    format("truetype");
+  font-weight: 350;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOD.TTF")
+    format("truetype");
+  font-weight: 450;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOB.TTF")
+    format("truetype");
+  font-weight: 550;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOE.TTF")
+    format("truetype");
+  font-weight: 650;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "筑紫明朝";
+  src: url("./typography/fzfwzhuzimincho/FZFWZHUZIMINCHOH.TTF")
+    format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
