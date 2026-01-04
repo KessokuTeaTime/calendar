@@ -15,10 +15,10 @@ export function getLunarMonthNotation(date: Date): LunarMonth | undefined {
   }
 }
 
-export function getLunarDayNotation(date: Date): LunarDay | undefined {
+export function getLunarDateNotation(date: Date): LunarDate | undefined {
   const lunarDay = toLunar(date.getTime())?.lDay;
   if (lunarDay != null) {
-    return getLunarDay(lunarDay);
+    return getLunarDate(lunarDay);
   }
 }
 
@@ -77,7 +77,7 @@ export function getOrdinalOfLunarMonth(month: LunarMonth): number {
   return lunarMonths.indexOf(month) + 1;
 }
 
-export const lunarDays = [
+export const lunarDates = [
   "初一",
   "初二",
   "初三",
@@ -110,14 +110,14 @@ export const lunarDays = [
   "三十",
 ] as const;
 
-export type LunarDay = (typeof lunarDays)[number];
+export type LunarDate = (typeof lunarDates)[number];
 
-export function getLunarDay(ordinal: number): LunarDay | undefined {
-  return lunarDays[(ordinal - 1) % 30];
+export function getLunarDate(ordinal: number): LunarDate | undefined {
+  return lunarDates[(ordinal - 1) % 30];
 }
 
-export function getOrdinalOfLunarDay(day: LunarDay): number {
-  return lunarDays.indexOf(day) + 1;
+export function getOrdinalOfLunarDate(day: LunarDate): number {
+  return lunarDates.indexOf(day) + 1;
 }
 
 export const youbiNames = ["日", "月", "火", "水", "木", "金", "土"] as const;

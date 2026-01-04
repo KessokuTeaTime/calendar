@@ -5,8 +5,12 @@ import { getDateColors } from "./lib/color";
 import { useMediaQuery } from "@mantine/hooks";
 import WideCalendarLayout from "./layouts/WideCalendarLayout";
 import NarrowCalendarLayout from "./layouts/NarrowCalendarLayout";
+import ModerateCalendarLayout from "./layouts/ModerateCalendarLayout";
 
 export function App() {
+  const isModerate = useMediaQuery(
+    "only screen and (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)"
+  );
   const isWide = useMediaQuery("only screen and (min-aspect-ratio: 1/1)");
   const isDark = useMediaQuery("(prefers-color-scheme: dark)");
   const colors = getDateColors(new Date());
@@ -26,6 +30,8 @@ export function App() {
     >
       {isWide ? (
         <WideCalendarLayout className="h-full w-full" />
+      ) : isModerate ? (
+        <ModerateCalendarLayout className="h-full w-full" />
       ) : (
         <NarrowCalendarLayout className="h-full w-full" />
       )}

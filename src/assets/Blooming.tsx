@@ -1,18 +1,19 @@
+import { useId } from "react";
+
 export default function Blooming({
   ...props
 }: React.SVGAttributes<SVGSVGElement>) {
+  const id = useId();
   return (
     <svg
       {...props}
       viewBox="0 0 2472 2470"
-      style={{
-        fill: "currentColor",
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-        strokeLinejoin: "round",
-        strokeMiterlimit: 2,
-        ...props.style,
-      }}
+      fill="currentColor"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      strokeLinejoin="round"
+      strokeMiterlimit="1.5"
+      preserveAspectRatio="xMinYMin meet"
     >
       <g transform="matrix(1,0,0,1,-764,-4815)">
         <g transform="matrix(1,0,0,1,2000,6050)">
@@ -26,37 +27,23 @@ export default function Blooming({
               </g>
             </g>
             <g transform="matrix(0.570552,0,0,0.570552,2000,2000)">
-              <circle
-                cx="0"
-                cy="0"
-                r="163"
-                style={{ fill: "url(#_Radial1)" }}
-              />
+              <circle cx="0" cy="0" r="163" fill={`url(#${id}-radial)`} />
             </g>
           </g>
         </g>
       </g>
       <defs>
         <radialGradient
-          id="_Radial1"
+          id={`${id}-radial`}
           cx="0"
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(163,0,0,163,0,0)"
         >
-          <stop
-            offset="0"
-            style={{ stopColor: "currentColor", stopOpacity: 1 }}
-          />
-          <stop
-            offset="0.65"
-            style={{ stopColor: "currentColor", stopOpacity: 0.86 }}
-          />
-          <stop
-            offset="1"
-            style={{ stopColor: "currentColor", stopOpacity: 0 }}
-          />
+          <stop offset="0" stopColor="currentColor" />
+          <stop offset="0.65" stopColor="currentColor" stopOpacity="0.86" />
+          <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </radialGradient>
       </defs>
     </svg>
