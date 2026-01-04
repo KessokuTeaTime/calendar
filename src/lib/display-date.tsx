@@ -1,5 +1,9 @@
 import { getGZ, toLunar } from "lunar-ts";
 
+export function getGeorgianMonthNotation(date: Date): string | undefined {
+  return getGeorgianMonth(date.getMonth() + 1);
+}
+
 export function getLunarYearNotation(date: Date): string | undefined {
   return getGZ(date.getTime());
 }
@@ -16,6 +20,36 @@ export function getLunarDayNotation(date: Date): LunarDay | undefined {
   if (lunarDay != null) {
     return getLunarDay(lunarDay);
   }
+}
+
+export function getYoubiNameNotation(date: Date): YoubiName | undefined {
+  const weekday = date.getDay();
+  return getYoubiName(weekday);
+}
+
+export const georgianMonths = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+] as const;
+
+export type GeorgianMonth = (typeof georgianMonths)[number];
+
+export function getGeorgianMonth(ordinal: number): GeorgianMonth | undefined {
+  return georgianMonths[(ordinal - 1) % 12];
+}
+
+export function getOrdinalOfGeorgianMonth(month: GeorgianMonth): number {
+  return georgianMonths.indexOf(month) + 1;
 }
 
 export const lunarMonths = [
@@ -84,4 +118,16 @@ export function getLunarDay(ordinal: number): LunarDay | undefined {
 
 export function getOrdinalOfLunarDay(day: LunarDay): number {
   return lunarDays.indexOf(day) + 1;
+}
+
+export const youbiNames = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
+export type YoubiName = (typeof youbiNames)[number];
+
+export function getYoubiName(ordinal: number): YoubiName | undefined {
+  return youbiNames[ordinal % 7]; // weekend is 0 (7) and 6, so ordinal 1-5 maps to index 0-5 directly
+}
+
+export function getOrdinalOfYoubiName(youbi: YoubiName): number {
+  return youbiNames.indexOf(youbi) + 1;
 }

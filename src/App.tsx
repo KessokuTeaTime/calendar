@@ -19,9 +19,10 @@ export function App() {
           "--color-theme": `var(${
             isDark ? "--color-theme-dark" : "--color-theme-light"
           })`,
+          "--color-bg": isDark ? "black" : "white",
         } as React.CSSProperties
       }
-      className="h-full w-full flex justify-center items-center bg-white dark:bg-black selection:bg-(--color-theme-light)/25 dark:selection:bg-(--color-theme-dark)/45"
+      className="h-full w-full flex justify-center items-center bg-(--color-bg) selection:bg-(--color-theme-light)/25 dark:selection:bg-(--color-theme-dark)/45"
     >
       {isWide ? (
         <WideCalendarLayout className="h-full w-full" />
