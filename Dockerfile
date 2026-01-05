@@ -32,4 +32,4 @@ COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/package.json .
 
 # copy built files
-COPY --from=build /user/src/app/dist /var/html
+COPY --from=prerelease /usr/src/app/dist /var/html
