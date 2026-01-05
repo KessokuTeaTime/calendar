@@ -1,10 +1,10 @@
-import CalendarLunarDate from "@/components/calendar/CalendarLunarDate";
-import CalendarLunarMonth from "@/components/calendar/CalendarLunarMonth";
-import CalendarLunarYear from "@/components/calendar/CalendarLunarYear";
-import CalendarMonth from "@/components/calendar/CalendarMonth";
-import CalendarWeekday from "@/components/calendar/CalendarWeekday";
-import CalendarYear from "@/components/calendar/CalendarYear";
-import Copyright from "@/components/Copyright";
+import CalendarLunarDate from "@/components/calendar/calendar-lunar-date";
+import CalendarLunarMonth from "@/components/calendar/calendar-lunar-month";
+import CalendarLunarYear from "@/components/calendar/calendar-lunar-year";
+import CalendarMonth from "@/components/calendar/calendar-month";
+import CalendarWeekday from "@/components/calendar/calendar-weekday";
+import CalendarYear from "@/components/calendar/calendar-year";
+import Copyright from "@/components/_copyright";
 import { cn } from "@/lib/cn";
 
 export default function BannerCalendarLayout({

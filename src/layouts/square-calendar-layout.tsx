@@ -1,11 +1,11 @@
-import Copyright from "@/components/Copyright";
-import CalendarMonth from "@/components/calendar/CalendarMonth";
-import CalendarWeekday from "@/components/calendar/CalendarWeekday";
-import CalendarYear from "@/components/calendar/CalendarYear";
+import Copyright from "@/components/c-opyright";
+import CalendarMonth from "@/components/calendar/calendar-month";
+import CalendarWeekday from "@/components/calendar/calendar-weekday";
+import CalendarYear from "@/components/calendar/calendar-year";
 import { cn } from "@/lib/cn";
-import CalendarLunarYear from "@/components/calendar/CalendarLunarYear";
-import CalendarLunarDate from "@/components/calendar/CalendarLunarDate";
-import CalendarLunarMonth from "@/components/calendar/CalendarLunarMonth";
+import CalendarLunarYear from "@/components/calendar/calendar-lunar-year";
+import CalendarLunarDate from "@/components/calendar/calendar-lunar-date";
+import CalendarLunarMonth from "@/components/calendar/calendar-lunar-month";
 
 export default function SquareCalendarLayout({
   ...props

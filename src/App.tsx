@@ -3,12 +3,12 @@ import "./index.css";
 import * as React from "react";
 import { getDateColors } from "./lib/color";
 import { useMediaQuery } from "@mantine/hooks";
-import BannerCalendarLayout from "./layouts/BannerCalendarLayout";
-import NarrowCalendarLayout from "./layouts/NarrowCalendarLayout";
-import ModerateCalendarLayout from "./layouts/ModerateCalendarLayout";
-import SquareCalendarLayout from "./layouts/SquareCalendarLayout";
+import BannerCalendarLayout from "./layouts/banner-calendar-layout";
+import NarrowCalendarLayout from "./layouts/narrow-calendar-layout";
+import ModerateCalendarLayout from "./layouts/moderate-calendar-layout";
+import SquareCalendarLayout from "./layouts/square-calendar-layout";
 import { useLayout } from "./lib/layout";
-import FlagCalendarLayout from "./layouts/FlagCalendarLayout";
+import FlagCalendarLayout from "./layouts/flag-calendar-layout";
 
 export function App() {
   const isDark = useMediaQuery("(prefers-color-scheme: dark)");

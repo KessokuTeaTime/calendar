@@ -1,11 +1,11 @@
 import { cn } from "@/lib/cn";
-import Copyright from "../components/Copyright";
-import CalendarWeekday from "@/components/calendar/CalendarWeekday";
-import CalendarYear from "@/components/calendar/CalendarYear";
-import CalendarMonth from "@/components/calendar/CalendarMonth";
-import Vertical2DigitDate from "@/components/Vertical2DigitDate";
-import CalendarLunarYear from "@/components/calendar/CalendarLunarYear";
-import CalendarLunarDateMonth from "@/components/calendar/CalendarLunarDateMonth";
+import Copyright from "../components/_copyright";
+import CalendarWeekday from "@/components/calendar/calendar-weekday";
+import CalendarYear from "@/components/calendar/calendar-year";
+import CalendarMonth from "@/components/calendar/calendar-month";
+import Vertical2DigitDate from "@/components/vertical-2-digit-date";
+import CalendarLunarYear from "@/components/calendar/calendar-lunar-year";
+import CalendarLunarDateMonth from "@/components/calendar/calendar-lunar-date-month";
 
 export default function NarrowCalendarLayout({
   ...props
