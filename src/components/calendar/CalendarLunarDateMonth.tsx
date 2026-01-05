@@ -3,14 +3,14 @@ import {
   getLunarMonthNotation,
 } from "@/lib/display-date";
 
-export type LunarDateMonthSegmentProps = {
+export type CalendarLunarDateMonthProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function LunarDateMonthSegment({
+export default function CalendarLunarDateMonth({
   date,
   ...props
-}: LunarDateMonthSegmentProps) {
+}: CalendarLunarDateMonthProps) {
   const lunarMonthNotation = getLunarMonthNotation(date);
   const lunarDateNotation = getLunarDateNotation(date);
   return (

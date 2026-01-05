@@ -1,11 +1,11 @@
 import { cn } from "@/lib/cn";
 import Copyright from "../components/Copyright";
-import WeekdaySegment from "@/components/segments/WeekdaySegment";
-import YearSegment from "@/components/segments/YearSegment";
-import MonthSegment from "@/components/segments/MonthSegment";
-import VerticalDate from "@/components/VerticalDate";
-import LunarYearSegment from "@/components/segments/LunarYearSegment";
-import LunarDateMonthSegment from "@/components/segments/LunarDateMonthSegment";
+import CalendarWeekday from "@/components/calendar/CalendarWeekday";
+import CalendarYear from "@/components/calendar/CalendarYear";
+import CalendarMonth from "@/components/calendar/CalendarMonth";
+import Vertical2DigitDate from "@/components/Vertical2DigitDate";
+import CalendarLunarYear from "@/components/calendar/CalendarLunarYear";
+import CalendarLunarDateMonth from "@/components/calendar/CalendarLunarDateMonth";
 
 export default function NarrowCalendarLayout({
   ...props
@@ -15,18 +15,18 @@ export default function NarrowCalendarLayout({
     <div
       {...props}
       className={cn(
-        "grid grid-cols-[min(400px,30%)_1fr] grid-rows-[auto_1fr]",
+        "grid grid-cols-[min(400px,36%)_1fr] grid-rows-[auto_1fr]",
         props.className
       )}
     >
       {/* lunar date (left top) */}
       <div className="w-full flex flex-col justify-center items-center">
-        <LunarYearSegment
+        <CalendarLunarYear
           className="w-full pt-[5%] pb-[5%] bg-(--color-theme) text-(--color-bg)"
           date={date}
           fill="currentColor"
         />
-        <LunarDateMonthSegment
+        <CalendarLunarDateMonth
           className="w-full mt-[10%] mb-[5%] text-(--color-theme)"
           date={date}
           fill="currentColor"
@@ -43,13 +43,13 @@ export default function NarrowCalendarLayout({
       {/* main content (right bottom) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <div className="w-[65%] flex flex-col">
-          <WeekdaySegment className="w-full" date={date} fill="currentColor" />
-          <YearSegment className="w-full" date={date} fill="currentColor" />
-          <MonthSegment className="w-full" date={date} fill="currentColor" />
+          <CalendarWeekday className="w-full" date={date} fill="currentColor" />
+          <CalendarYear className="w-full" date={date} fill="currentColor" />
+          <CalendarMonth className="w-full" date={date} fill="currentColor" />
         </div>
 
-        <VerticalDate
-          className="grow text-(--color-theme) select-none"
+        <Vertical2DigitDate
+          className="w-[103.5%] grow -ml-[3.5%] -mt-[5%] text-(--color-theme) select-none"
           date={date}
         />
       </div>

@@ -1,10 +1,10 @@
 import { useId } from "react";
 
-export type YearSegmentProps = {
+export type CalendarYearProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function YearSegment({ date, ...props }: YearSegmentProps) {
+export default function CalendarYear({ date, ...props }: CalendarYearProps) {
   const id = useId();
   const year = date.getFullYear();
   return (

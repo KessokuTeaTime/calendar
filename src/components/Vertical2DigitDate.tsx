@@ -1,10 +1,13 @@
 import { cn } from "@/lib/cn";
 
-export type VerticalDateProps = {
+export type Vertical2DigitDateProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function VerticalDate({ date, ...props }: VerticalDateProps) {
+export default function Vertical2DigitDate({
+  date,
+  ...props
+}: Vertical2DigitDateProps) {
   const day = date.getDate();
   return (
     <div
@@ -13,13 +16,13 @@ export default function VerticalDate({ date, ...props }: VerticalDateProps) {
       className={cn("relative w-full overflow-hidden", props.className)}
     >
       <svg
-        viewBox="0 0 10 50"
+        viewBox="-0.25 0 10 50"
         className="absolute left-0 top-0 w-[150%] h-auto"
         preserveAspectRatio="xMinYMin meet"
       >
         <text
           x="0"
-          y="-0.25"
+          y="0"
           fill="currentColor"
           fontFamily="var(--font-novecento)"
           fontSize="10"
@@ -28,7 +31,7 @@ export default function VerticalDate({ date, ...props }: VerticalDateProps) {
           letterSpacing="-0.5"
           dominantBaseline="alphabetic"
         >
-          {day}
+          {day.toString().padStart(2, "0")}
         </text>
       </svg>
     </div>

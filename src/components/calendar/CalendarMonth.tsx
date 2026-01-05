@@ -1,10 +1,10 @@
 import { getGeorgianMonthNotation } from "@/lib/display-date";
 
-export type MonthSegmentProps = {
+export type CalendarMonthProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function MonthSegment({ date, ...props }: MonthSegmentProps) {
+export default function CalendarMonth({ date, ...props }: CalendarMonthProps) {
   const georgianMonthNotation = getGeorgianMonthNotation(date);
   return (
     <svg {...props} viewBox="0 0 100 18" preserveAspectRatio="xMinYMin meet">

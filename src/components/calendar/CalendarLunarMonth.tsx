@@ -3,15 +3,15 @@ import {
   getLunarMonthNotation,
 } from "@/lib/display-date";
 
-export type LunarDateSegmentProps = {
+export type CalendarLunarMonthProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function LunarDateSegment({
+export default function CalendarLunarMonth({
   date,
   ...props
-}: LunarDateSegmentProps) {
-  const lunarDateNotation = getLunarDateNotation(date) || "未知";
+}: CalendarLunarMonthProps) {
+  const lunarMonthNotation = getLunarMonthNotation(date) || "無";
   return (
     <svg {...props} viewBox="0 0 10 20" preserveAspectRatio="xMinYMin meet">
       <text
@@ -23,7 +23,7 @@ export default function LunarDateSegment({
         textAnchor="middle"
         dominantBaseline="central"
       >
-        {lunarDateNotation[0]}
+        {lunarMonthNotation}
       </text>
       <text
         x="50%"
@@ -34,7 +34,7 @@ export default function LunarDateSegment({
         textAnchor="middle"
         dominantBaseline="central"
       >
-        {lunarDateNotation[1]}
+        月
       </text>
     </svg>
   );

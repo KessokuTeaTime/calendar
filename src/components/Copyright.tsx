@@ -7,7 +7,7 @@ export default function Copyright({
   return (
     <EquinoxParterre
       {...props}
-      className={cn("text-(--color-theme)", props.className)}
+      className={cn("text-(--color-theme) select-none", props.className)}
     />
   );
 }

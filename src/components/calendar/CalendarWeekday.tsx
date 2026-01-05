@@ -1,14 +1,14 @@
 import { getYoubiNameNotation } from "@/lib/display-date";
 import { useId } from "react";
 
-export type WeekdaySegmentProps = {
+export type CalendarWeekdayProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function WeekdaySegment({
+export default function CalendarWeekday({
   date,
   ...props
-}: WeekdaySegmentProps) {
+}: CalendarWeekdayProps) {
   const id = useId();
   const youbiNameNotation = getYoubiNameNotation(date);
   return (

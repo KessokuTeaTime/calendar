@@ -1,13 +1,13 @@
 import { getLunarYearNotation } from "@/lib/display-date";
 
-export type LunarYearSegmentProps = {
+export type CalendarLunarYearProps = {
   date: Date;
 } & React.SVGAttributes<SVGSVGElement>;
 
-export default function LunarYearSegment({
+export default function CalendarLunarYear({
   date,
   ...props
-}: LunarYearSegmentProps) {
+}: CalendarLunarYearProps) {
   const lunarYearNotation = getLunarYearNotation(date);
   return (
     <svg {...props} viewBox="0 0 20 10" preserveAspectRatio="xMinYMin meet">
