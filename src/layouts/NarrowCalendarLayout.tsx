@@ -15,7 +15,7 @@ export default function NarrowCalendarLayout({
     <div
       {...props}
       className={cn(
-        "grid grid-cols-[min(400px,36%)_1fr] grid-rows-[auto_1fr]",
+        "grid grid-cols-[min(400px,36%)_1fr] grid-rows-[auto_1fr_auto]",
         props.className
       )}
     >
@@ -33,14 +33,16 @@ export default function NarrowCalendarLayout({
         />
       </div>
 
-      {/* gradient and copyright (left bottom) */}
+      {/* gradient (left middle) */}
       <div className="w-full h-full mt-auto col-start-1 row-start-2 flex flex-col items-center">
         <div className="w-full grow bg-[linear-gradient(to_bottom,transparent_55%,var(--color-theme))]" />
         <div className="w-full h-12 bg-(--color-theme)" />
-        <Copyright className="w-full text-(--color-theme)" />
       </div>
 
-      {/* main content (right bottom) */}
+      {/* copyright (left bottom) */}
+      <Copyright className="w-full h-full col-start-1 row-start-3 text-(--color-theme)" />
+
+      {/* main content (right middle) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <div className="w-[65%] flex flex-col">
           <CalendarWeekday className="w-full" date={date} fill="currentColor" />
