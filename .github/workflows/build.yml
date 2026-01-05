@@ -1,0 +1,56 @@
+name: Build & push to Docker Hub
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'build'
+  cancel-in-progress: true
+
+env:
+  BUILD_PATH: '.'
+
+jobs:
+  build:
+    name: Build the image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.DOCKER_IMAGE_NAME }}:latest
+
+  post:
+    name: Post the update request
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: KessokuTeaTime/action-kessoku-private-ci@main
+        with:
+          auth: ${{ secrets.KTT_API_TOKEN }}
+          endpoint: ${{ vars.KTT_API_ENDPOINT }}
+          payload: |
+            {
+              "image": "${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.DOCKER_IMAGE_NAME }}:latest",
+              "target": "${{ vars.PAYLOAD_TARGET }}"
+            }
