@@ -1,4 +1,4 @@
-import Copyright from "@/components/c-opyright";
+import Copyright from "@/components/copyright";
 import CalendarMonth from "@/components/calendar/calendar-month";
 import CalendarWeekday from "@/components/calendar/calendar-weekday";
 import CalendarYear from "@/components/calendar/calendar-year";

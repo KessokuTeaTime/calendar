@@ -4,7 +4,7 @@ import CalendarLunarYear from "@/components/calendar/calendar-lunar-year";
 import CalendarMonth from "@/components/calendar/calendar-month";
 import CalendarWeekday from "@/components/calendar/calendar-weekday";
 import CalendarYear from "@/components/calendar/calendar-year";
-import Copyright from "@/components/_copyright";
+import Copyright from "@/components/copyright";
 import { cn } from "@/lib/cn";
 
 export default function BannerCalendarLayout({

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import Copyright from "../components/_copyright";
+import Copyright from "../components/copyright";
 import CalendarWeekday from "@/components/calendar/calendar-weekday";
 import CalendarYear from "@/components/calendar/calendar-year";
 import CalendarMonth from "@/components/calendar/calendar-month";
