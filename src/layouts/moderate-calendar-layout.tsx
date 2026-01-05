@@ -51,7 +51,7 @@ export default function ModerateCalendarLayout({
       {/* youbi and numeric year (right middle upper) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <CalendarWeekday
-          className="w-full font-bold"
+          className="w-full font-medium"
           date={date}
           fill="currentColor"
         />
@@ -65,12 +65,12 @@ export default function ModerateCalendarLayout({
       {/* georgian month and numeric date (right middle lower) */}
       <div className="w-full h-full col-start-2 row-start-3 flex flex-col text-(--color-theme)">
         <CalendarMonth
-          className="w-full font-bold"
+          className="w-full font-medium"
           date={date}
           fill="currentColor"
         />
 
-        <div className="relative w-[60%] grow ml-auto -mt-[25%] -mr-[10%] text-(--color-theme) font-extrabold overflow-hidden select-none">
+        <div className="relative w-[60%] grow ml-auto -mt-[25%] text-(--color-theme) font-light overflow-hidden select-none">
           <svg
             viewBox="0 0 10 20"
             className="absolute w-full left-0 top-0"
@@ -78,24 +78,24 @@ export default function ModerateCalendarLayout({
             fill="currentColor"
           >
             <text
-              x="50%"
+              x="100%"
               y="30%"
               fontFamily="var(--font-novecento)"
               fontSize="10"
-              textAnchor="middle"
+              textAnchor="end"
               dominantBaseline="central"
             >
-              {day.toString().padStart(2, "0")[0]}
+              {day.toString()[0]}
             </text>
             <text
-              x="50%"
+              x="100%"
               y="70%"
               fontFamily="var(--font-novecento)"
               fontSize="10"
-              textAnchor="middle"
+              textAnchor="end"
               dominantBaseline="central"
             >
-              {day.toString().padStart(2, "0")[1]}
+              {day.toString()[1]}
             </text>
           </svg>
         </div>

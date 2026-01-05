@@ -2,25 +2,51 @@ import { useMediaQuery } from "@mantine/hooks";
 
 export type Layout = "narrow" | "moderate" | "square" | "banner" | "flag";
 
-export function useLayout(): Layout {
-  const isModerateLayout = useMediaQuery(
-    "only screen and (min-aspect-ratio: 1/2)"
-  );
-  const isSquareLayout = useMediaQuery(
-    "only screen and (min-aspect-ratio: 3/4)"
-  );
-  const isBannerLayout = useMediaQuery(
-    "only screen and (min-aspect-ratio: 1/1)"
-  );
-  const isFlagLayout = useMediaQuery("only screen and (min-aspect-ratio: 5/3)");
+function getMinAspectRatio(layout: Layout): string | undefined {
+  switch (layout) {
+    case "narrow":
+      return undefined;
+    case "moderate":
+      return "1/2";
+    case "square":
+      return "3/4";
+    case "banner":
+      return "1/1";
+    case "flag":
+      return "16/9";
+  }
+}
 
-  if (isFlagLayout) {
+function query(minRatio?: string, maxRatio?: string): boolean {
+  if (minRatio === undefined && maxRatio === undefined) {
+    // always succeed
+    return true;
+  }
+
+  let query = ["only screen"];
+  if (minRatio !== undefined) {
+    query.push(`(min-aspect-ratio: ${minRatio})`);
+  }
+  if (maxRatio !== undefined) {
+    query.push(`(max-aspect-ratio: ${maxRatio})`);
+  }
+
+  return useMediaQuery(query.join(" and "));
+}
+
+export function useLayout(): Layout {
+  const isFlag = query(getMinAspectRatio("flag"));
+  const isBanner = query(getMinAspectRatio("banner"));
+  const isSquare = query(getMinAspectRatio("square"));
+  const isModerate = query(getMinAspectRatio("moderate"));
+
+  if (isFlag) {
     return "flag";
-  } else if (isBannerLayout) {
+  } else if (isBanner) {
     return "banner";
-  } else if (isSquareLayout) {
+  } else if (isSquare) {
     return "square";
-  } else if (isModerateLayout) {
+  } else if (isModerate) {
     return "moderate";
   } else {
     return "narrow";

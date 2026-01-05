@@ -52,7 +52,7 @@ export default function SquareCalendarLayout({
       {/* youbi and numeric year (right middle upper) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <CalendarWeekday
-          className="w-full font-bold"
+          className="w-full font-meium"
           date={date}
           fill="currentColor"
         />
@@ -66,12 +66,12 @@ export default function SquareCalendarLayout({
       {/* georgian month and numeric date (right middle lower) */}
       <div className="w-full h-full col-start-2 row-start-3 flex flex-col text-(--color-theme)">
         <CalendarMonth
-          className="w-full font-bold"
+          className="w-full font-medium"
           date={date}
           fill="currentColor"
         />
 
-        <div className="relative w-full grow text-(--color-theme) font-extrabold overflow-hidden select-none">
+        <div className="relative w-full grow text-(--color-theme) font-light overflow-hidden select-none">
           <svg
             viewBox="0 0 20 10"
             className="absolute w-full left-0 top-0"

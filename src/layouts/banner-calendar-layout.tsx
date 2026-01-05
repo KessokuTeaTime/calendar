@@ -16,7 +16,7 @@ export default function BannerCalendarLayout({
     <div
       {...props}
       className={cn(
-        "grid grid-cols-[min(400px,36%)_min(400px,36%)_1fr] grid-rows-[auto_1fr_auto]",
+        "grid grid-cols-[min(400px,36%)_min(400px,36%)_1fr] grid-rows-[auto_auto_1fr]",
         props.className
       )}
     >
@@ -51,7 +51,7 @@ export default function BannerCalendarLayout({
       {/* youbi, numeric year and georgian month (middle middle) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <CalendarWeekday
-          className="w-full font-bold"
+          className="w-full font-medium"
           date={date}
           fill="currentColor"
         />
@@ -61,21 +61,44 @@ export default function BannerCalendarLayout({
           fill="currentColor"
         />
         <CalendarMonth
-          className="w-full font-bold"
+          className="w-full font-medium"
           date={date}
           fill="currentColor"
         />
       </div>
 
       {/* gradient and copyright (left middle-bottom) */}
-      <div className="w-full h-full col-start-1 row-start-2 row-end-3 flex flex-col items-center">
+      <div className="w-full h-full col-start-1 row-start-2 row-span-2 flex flex-col items-center">
         <div className="grow" />
         <div className="w-full h-5 bg-[linear-gradient(to_right,var(--color-theme),transparent_15%)] opacity-50" />
         <div className="w-full h-5 bg-[linear-gradient(to_right,var(--color-theme),transparent_20%)] opacity-70" />
         <div className="w-full h-5 bg-[linear-gradient(to_right,var(--color-theme),transparent_35%)] opacity-85" />
         <div className="w-full h-5 bg-[linear-gradient(to_right,var(--color-theme),transparent_75%)]" />
         <div className="w-full h-7.5 bg-(--color-theme)" />
-        <Copyright className="w-full col-start-1 row-start-3 text-(--color-theme)" />
+        <Copyright className="w-full text-(--color-theme)" />
+      </div>
+
+      {/* numeric date and gradient (middle bottom) */}
+      <div className="w-full h-full col-start-2 row-start-3 flex flex-col text-(--color-theme)">
+        <svg
+          viewBox="0 0 20 10"
+          className="w-full -mb-[10%] font-light"
+          preserveAspectRatio="xMinYMin meet"
+          fill="currentColor"
+        >
+          <text
+            x="0"
+            y="0"
+            fontFamily="var(--font-novecento)"
+            fontSize="10"
+            textAnchor="start"
+            letterSpacing="-1"
+            dominantBaseline="hanging"
+          >
+            {day.toString().padStart(2, "0")}
+          </text>
+        </svg>
+        <div className="w-full grow bg-[linear-gradient(to_bottom,transparent,var(--color-theme))]" />
       </div>
     </div>
   );
