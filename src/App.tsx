@@ -7,16 +7,12 @@ import BannerCalendarLayout from "./layouts/BannerCalendarLayout";
 import NarrowCalendarLayout from "./layouts/NarrowCalendarLayout";
 import ModerateCalendarLayout from "./layouts/ModerateCalendarLayout";
 import SquareCalendarLayout from "./layouts/SquareCalendarLayout";
+import { useLayout } from "./lib/layout";
+import FlagCalendarLayout from "./layouts/FlagCalendarLayout";
 
 export function App() {
-  const isModerate = useMediaQuery(
-    "only screen and (min-aspect-ratio: 1/2) and (max-aspect-ratio: 3/4)"
-  );
-  const isSquare = useMediaQuery(
-    "only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)"
-  );
-  const isBanner = useMediaQuery("only screen and (min-aspect-ratio: 1/1)");
   const isDark = useMediaQuery("(prefers-color-scheme: dark)");
+  const layout = useLayout();
   const colors = getDateColors(new Date());
   return (
     <div
@@ -32,15 +28,17 @@ export function App() {
       }
       className="h-full w-full flex justify-center items-center bg-(--color-bg) selection:bg-(--color-theme-light)/25 dark:selection:bg-(--color-theme-dark)/45"
     >
-      {isBanner ? (
-        <BannerCalendarLayout className="h-full w-full" />
-      ) : isModerate ? (
-        <ModerateCalendarLayout className="h-full w-full" />
-      ) : isSquare ? (
-        <SquareCalendarLayout className="h-full w-full" />
-      ) : (
+      {layout === "narrow" ? (
         <NarrowCalendarLayout className="h-full w-full" />
-      )}
+      ) : layout === "banner" ? (
+        <BannerCalendarLayout className="h-full w-full" />
+      ) : layout === "moderate" ? (
+        <ModerateCalendarLayout className="h-full w-full" />
+      ) : layout === "square" ? (
+        <SquareCalendarLayout className="h-full w-full" />
+      ) : layout === "flag" ? (
+        <FlagCalendarLayout className="h-full w-full" />
+      ) : null}
     </div>
   );
 }
