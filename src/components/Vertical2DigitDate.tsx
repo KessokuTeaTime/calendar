@@ -26,7 +26,6 @@ export default function Vertical2DigitDate({
           fill="currentColor"
           fontFamily="var(--font-novecento)"
           fontSize="10"
-          fontWeight="900"
           textAnchor="start"
           letterSpacing="-0.5"
           dominantBaseline="alphabetic"

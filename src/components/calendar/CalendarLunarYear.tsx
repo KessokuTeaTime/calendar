@@ -8,20 +8,28 @@ export default function CalendarLunarYear({
   date,
   ...props
 }: CalendarLunarYearProps) {
-  const lunarYearNotation = getLunarYearNotation(date);
+  const lunarYearNotation = getLunarYearNotation(date) ?? "未知";
   return (
     <svg {...props} viewBox="0 0 20 10" preserveAspectRatio="xMinYMin meet">
       <text
-        x="50%"
+        x="30%"
         y="50%"
         fontFamily="var(--font-zhuzimincho)"
         fontSize="9.25"
-        fontWeight="bold"
-        letterSpacing="-0.5"
         textAnchor="middle"
         dominantBaseline="central"
       >
-        {lunarYearNotation}
+        {lunarYearNotation[0]}
+      </text>
+      <text
+        x="70%"
+        y="50%"
+        fontFamily="var(--font-zhuzimincho)"
+        fontSize="9.25"
+        textAnchor="middle"
+        dominantBaseline="central"
+      >
+        {lunarYearNotation[1]}
       </text>
     </svg>
   );

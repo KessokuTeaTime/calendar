@@ -13,7 +13,6 @@ export default function CalendarMonth({ date, ...props }: CalendarMonthProps) {
         y="50%"
         fontFamily="var(--font-pleasure)"
         fontSize="13"
-        fontWeight="bold"
         letterSpacing="-0.5"
         textAnchor="start"
         dominantBaseline="central"

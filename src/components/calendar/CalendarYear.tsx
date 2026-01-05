@@ -26,7 +26,6 @@ export default function CalendarYear({ date, ...props }: CalendarYearProps) {
             fill="black"
             fontFamily="var(--font-novecento)"
             fontSize="20"
-            fontWeight="bold"
             letterSpacing="-1"
             textAnchor="start"
             dominantBaseline="central"

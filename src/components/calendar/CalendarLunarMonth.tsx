@@ -19,7 +19,6 @@ export default function CalendarLunarMonth({
         y="25%"
         fontFamily="var(--font-zhuzimincho)"
         fontSize="9.5"
-        fontWeight="700"
         textAnchor="middle"
         dominantBaseline="central"
       >
@@ -30,7 +29,6 @@ export default function CalendarLunarMonth({
         y="75%"
         fontFamily="var(--font-zhuzimincho)"
         fontSize="9.5"
-        fontWeight="700"
         textAnchor="middle"
         dominantBaseline="central"
       >

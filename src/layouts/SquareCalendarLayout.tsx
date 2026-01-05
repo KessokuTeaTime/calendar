@@ -7,7 +7,7 @@ import CalendarLunarYear from "@/components/calendar/CalendarLunarYear";
 import CalendarLunarDate from "@/components/calendar/CalendarLunarDate";
 import CalendarLunarMonth from "@/components/calendar/CalendarLunarMonth";
 
-export default function ModerateCalendarLayout({
+export default function SquareCalendarLayout({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   const date = new Date();
@@ -41,8 +41,9 @@ export default function ModerateCalendarLayout({
           date={date}
           fill="currentColor"
         />
-        <div className="w-full grow bg-[linear-gradient(to_bottom,transparent_55%,var(--color-theme))]" />
-        <div className="w-full h-12 bg-(--color-theme)" />
+        <div className="grow" />
+        <div className="w-full h-5 bg-[linear-gradient(to_right,var(--color-theme),transparent_75%)]" />
+        <div className="w-full h-7.5 bg-(--color-theme)" />
       </div>
 
       {/* copyright (left bottom) */}
@@ -70,32 +71,23 @@ export default function ModerateCalendarLayout({
           fill="currentColor"
         />
 
-        <div className="relative w-[60%] grow ml-auto -mt-[25%] -mr-[10%] text-(--color-theme) font-extrabold overflow-hidden select-none">
+        <div className="relative w-full grow text-(--color-theme) font-extrabold overflow-hidden select-none">
           <svg
-            viewBox="0 0 10 20"
+            viewBox="0 0 20 10"
             className="absolute w-full left-0 top-0"
             preserveAspectRatio="xMinYMin meet"
             fill="currentColor"
           >
             <text
-              x="50%"
-              y="30%"
+              x="0"
+              y="0"
               fontFamily="var(--font-novecento)"
               fontSize="10"
-              textAnchor="middle"
-              dominantBaseline="central"
+              textAnchor="start"
+              letterSpacing="-1"
+              dominantBaseline="hanging"
             >
-              {day.toString().padStart(2, "0")[0]}
-            </text>
-            <text
-              x="50%"
-              y="70%"
-              fontFamily="var(--font-novecento)"
-              fontSize="10"
-              textAnchor="middle"
-              dominantBaseline="central"
-            >
-              {day.toString().padStart(2, "0")[1]}
+              {day.toString().padStart(2, "0")}
             </text>
           </svg>
         </div>

@@ -20,7 +20,6 @@ export default function CalendarLunarDateMonth({
         y="50%"
         fontFamily="var(--font-zhuzimincho)"
         fontSize="10"
-        fontWeight="600"
         letterSpacing="-0.5"
         textAnchor="middle"
         dominantBaseline="central"

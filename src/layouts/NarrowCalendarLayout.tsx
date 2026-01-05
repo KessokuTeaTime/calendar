@@ -22,12 +22,12 @@ export default function NarrowCalendarLayout({
       {/* lunar date (left top) */}
       <div className="w-full flex flex-col justify-center items-center">
         <CalendarLunarYear
-          className="w-full pt-[5%] pb-[5%] bg-(--color-theme) text-(--color-bg)"
+          className="w-full pt-[5%] pb-[5%] bg-(--color-theme) text-(--color-bg) font-extrabold"
           date={date}
           fill="currentColor"
         />
         <CalendarLunarDateMonth
-          className="w-full mt-[10%] mb-[5%] text-(--color-theme)"
+          className="w-full mt-[10%] mb-[5%] text-(--color-theme) font-bold"
           date={date}
           fill="currentColor"
         />
@@ -45,13 +45,25 @@ export default function NarrowCalendarLayout({
       {/* main content (right middle) */}
       <div className="w-full h-full col-start-2 row-start-2 flex flex-col text-(--color-theme)">
         <div className="w-[65%] flex flex-col">
-          <CalendarWeekday className="w-full" date={date} fill="currentColor" />
-          <CalendarYear className="w-full" date={date} fill="currentColor" />
-          <CalendarMonth className="w-full" date={date} fill="currentColor" />
+          <CalendarWeekday
+            className="w-full font-bold"
+            date={date}
+            fill="currentColor"
+          />
+          <CalendarYear
+            className="w-full font-extrabold"
+            date={date}
+            fill="currentColor"
+          />
+          <CalendarMonth
+            className="w-full font-bold"
+            date={date}
+            fill="currentColor"
+          />
         </div>
 
         <Vertical2DigitDate
-          className="w-[103.5%] grow -ml-[3.5%] -mt-[5%] text-(--color-theme) select-none"
+          className="w-[103.5%] grow -ml-[3.5%] -mt-[5%] text-(--color-theme) font-extrabold select-none"
           date={date}
         />
       </div>

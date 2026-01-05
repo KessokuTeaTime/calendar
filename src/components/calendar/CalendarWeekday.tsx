@@ -25,7 +25,6 @@ export default function CalendarWeekday({
         y="50%"
         fontFamily="var(--font-zhuzimincho)"
         fontSize="11.5"
-        fontWeight="bold"
         letterSpacing="-1"
         textAnchor="end"
         dominantBaseline="central"
