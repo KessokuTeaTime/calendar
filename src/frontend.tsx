@@ -7,10 +7,14 @@
 
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
+import Head from "./Head";
 
 function start() {
   const root = createRoot(document.getElementById("root")!);
   root.render(<App />);
+
+  const head = createRoot(document.getElementById("head")!);
+  head.render(<Head />);
 }
 
 if (document.readyState === "loading") {

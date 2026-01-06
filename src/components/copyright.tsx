@@ -1,4 +1,4 @@
-import EquinoxParterre from "@/assets/EquinoxParterre";
+import EquinoxParterre from "@/assets/equinox-parterre";
 import { cn } from "@/lib/cn";
 
 export default function Copyright({
