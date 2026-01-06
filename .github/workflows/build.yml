@@ -2,7 +2,7 @@ name: Build & push to Docker Hub
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -11,11 +11,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'build'
+  group: "build"
   cancel-in-progress: true
 
 env:
-  BUILD_PATH: '.'
+  BUILD_PATH: "."
 
 jobs:
   build:
@@ -39,18 +39,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.DOCKER_IMAGE_NAME }}:latest
-
-  post:
-    name: Post the update request
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - uses: KessokuTeaTime/action-kessoku-private-ci@main
-        with:
-          auth: ${{ secrets.KTT_API_TOKEN }}
-          endpoint: ${{ vars.KTT_API_ENDPOINT }}
-          payload: |
-            {
-              "image": "${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.DOCKER_IMAGE_NAME }}:latest",
-              "target": "${{ vars.PAYLOAD_TARGET }}"
-            }
