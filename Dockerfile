@@ -12,23 +12,16 @@ COPY . .
 RUN bun run build
 
 # runtime
-FROM nginx:alpine
+FROM oven/bun:1.0 AS runner
 
-# remove default config
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# custom nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# copy built files and serve script
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/serve.ts ./serve.ts
 
-# copy built static files
-COPY --from=builder /app/dist /usr/share/nginx/html
+ENV PORT=3000
 
-# optional hardening
-RUN chmod -R 555 /usr/share/nginx/html
+EXPOSE 3000
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-
-# health check
-HEALTHCHECK CMD wget -qO- http://localhost/ || exit 1
+CMD ["bun", "run", "serve.ts"]
