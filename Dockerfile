@@ -1,10 +1,10 @@
 # build
-FROM oven/bun:1.0 AS builder
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
 # copy only dependency files first (better cache)
-COPY bun.lock package.json ./
+COPY bun.lockb package.json ./
 RUN bun install --frozen-lockfile
 
 # copy source and build
