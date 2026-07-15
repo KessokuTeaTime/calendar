@@ -1,27 +1,40 @@
-# build
-FROM oven/bun:1 AS builder
+FROM node:lts AS builder
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable
 
 WORKDIR /app
 
-# copy only dependency files first (better cache)
-COPY bun.lock package.json ./
-RUN bun install --frozen-lockfile
+# install deps (better cache)
+COPY pnpm-lock.yaml package.json ./
+RUN pnpm -v
+RUN pnpm install --frozen-lockfile
 
-# copy source and build
+# build
 COPY . .
-RUN bun run build
+RUN pnpm run build
+
 
 # runtime
-FROM oven/bun:1.0 AS runner
+FROM node:lts-alpine AS runner
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable
 
 WORKDIR /app
 
-# copy built files and serve script
+# only runtime essentials
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/serve.ts ./serve.ts
+COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm install --prod
 
 ENV PORT=3000
 
 EXPOSE 3000
 
-CMD ["bun", "run", "serve.ts"]
+CMD ["pnpm", "run", "serve"]
